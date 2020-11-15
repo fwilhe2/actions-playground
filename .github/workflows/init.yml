@@ -10,3 +10,4 @@ jobs:
     - name: test
       run: |
         env
+    - run: find /home/runner/work/_temp/_runner_file_commands
