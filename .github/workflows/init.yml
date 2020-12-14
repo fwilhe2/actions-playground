@@ -9,5 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: test
       run: |
-        go install github.com/kordamp/gm
-        gm -gv
+        git clone https://github.com/kordamp/gm
+        cd gm
+        make
+        ./gm -gv
