@@ -9,5 +9,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: test
       run: |
-        env
-    - run: find /home/runner/work/_temp/_runner_file_commands
+        go install github.com/kordamp/gm
+        gm -gv
