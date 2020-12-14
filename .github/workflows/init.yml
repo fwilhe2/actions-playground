@@ -17,3 +17,5 @@ jobs:
         cd gm
         make
         ./gm -gv
+      env:
+        GOPATH: /home/runner/work/actions-playground/go
