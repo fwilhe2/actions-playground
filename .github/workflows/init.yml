@@ -7,5 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: echo "::set-output name=version_number::$(npx semver --increment patch $(curl --silent "https://api.github.com/repos/fwilhe2/Inzell/releases/latest" | jq -r .tag_name))"
-
+    - run: |
+       npm install semver --quiet
+       echo "::set-output name=version_number::$(node_modules/.bin/semver --increment patch $(curl --silent "https://api.github.com/repos/fwilhe2/Inzell/releases/latest" | jq -r .tag_name))"
