@@ -14,5 +14,5 @@ jobs:
         echo "::set-output name=version_number::$(npx semver --increment patch $(curl --silent "https://api.github.com/repos/fwilhe2/Inzell/releases/latest" | jq -r .tag_name))"
     - run: echo ${{ steps.next_version.outputs.version_number }}
     - run: echo foo > bar
-    - run: exit $(git diff --name-only --exit-code)
+    - run: set -ex; exit $(git diff --name-only --exit-code)
     - run: git status
