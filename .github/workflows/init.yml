@@ -9,5 +9,5 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
       cat foo.sql | sqlite3 foo.db
-      sqlite3 foo.db 'select * from t'
+      sqlite3 foo.db 'select * from t;'
 
