@@ -7,13 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - run: |
+      cat foo.sql | sqlite3 foo.db
+      sqlite3 foo.db 'select * from t'
 
-    - name: Get Version Number
-      id: next_version
-      run: |
-        echo "::set-output name=version_number::$(npx semver --increment patch $(curl --silent "https://api.github.com/repos/fwilhe2/Inzell/releases/latest" | jq -r .tag_name))"
-    - run: echo ${{ steps.next_version.outputs.version_number }}
-    - run: echo foo > README.md
-    - run: git diff --name-only --exit-code
-    - run: git status
-    - run: exit 1
