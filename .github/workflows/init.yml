@@ -3,10 +3,30 @@ on:
   push:
   workflow_dispatch:
 jobs:
-  build:
+  a:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: |
-      cat foo.sql | sqlite3 foo.db
+    - run: ls -la
+  b:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: ls -la
+  c:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: ls -la
+  a1:
+    runs-on: ubuntu-latest
+    needs: [a, b]
+    steps:
+    - uses: actions/checkout@v2
+    - run: ls -la
+  a2:
+    runs-on: ubuntu-latest
+    needs: [a1, c]
+    steps:
+    - uses: actions/checkout@v2
     - run: ls -la
